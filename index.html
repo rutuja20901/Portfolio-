@@ -898,31 +898,31 @@ View GitHub
 
 <div class="contact-form">
 
-<form>
+<form action="https://formsubmit.co/rutujachavan20901@gmail.com" method="POST">
 
 <div class="row">
 
 <div class="col-md-6 mb-3">
 <label>First Name *</label>
-<input type="text" class="form-control" placeholder="First name">
+<input type="text" name="first_name" class="form-control" placeholder="First name" required>
 </div>
 
 <div class="col-md-6 mb-3">
 <label>Last Name *</label>
-<input type="text" class="form-control" placeholder="Last name">
+<input type="text" name="last_name" class="form-control" placeholder="Last name" required>
 </div>
 
 </div>
 
 <div class="mb-3">
 <label>Email *</label>
-<input type="email" class="form-control" placeholder="your@email.com">
+<input type="email" name="email" class="form-control" placeholder="your@email.com" required>
 </div>
 
 <div class="mb-3">
 <label>Subject</label>
 
-<select class="form-control">
+<select name="subject" class="form-control">
 <option>Project Inquiry</option>
 <option>Job Opportunity</option>
 <option>Collaboration</option>
@@ -933,10 +933,10 @@ View GitHub
 
 <div class="mb-3">
 <label>Message *</label>
-<textarea class="form-control" rows="5" placeholder="Tell me about your project"></textarea>
+<textarea name="message" class="form-control" rows="5" placeholder="Tell me about your project" required></textarea>
 </div>
 
-<button class="send-btn">Send Message</button>
+<button type="submit" class="send-btn">Send Message</button>
 
 </form>
 
