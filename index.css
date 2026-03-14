@@ -8,6 +8,7 @@ body{
 font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 background:#000000;
 color:white;
+min-height:2000px;
 }
 
 /* HERO SECTION */
@@ -349,21 +350,36 @@ animation:lineGlow 3s infinite alternate;
 }
 
 /* timeline items */
-
+/* Initial state (hidden) */
 .timeline-item{
 padding:20px 40px;
 position:relative;
 width:70%;
-animation:fadeUp 1s ease forwards;
+
+opacity:0;
+transform:translateY(80px);
+transition:all 0.8s ease;
+}
+
+/* Visible state after scroll */
+.timeline-item.show{
+opacity:1;
+transform:translateY(0);
 }
 
 .timeline-item.left{
 left:-180px;
+transform:translateX(0px);
 }
 
 .timeline-item.right{
 left:50%;
+transform:translateX(0px);
 }
+
+
+
+
 
 /* timeline card */
 
@@ -1261,8 +1277,131 @@ transition:all 0.3s ease;
 transform:translateY(-3px) scale(1.05);
 }
 
-.section-title{
-background:linear-gradient(90deg,#1DCD9F,#4facfe);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+
+
+
+#scroll-indicator{
+transition:height 0.25s ease;
+box-shadow:0 0 10px #1DCD9F, 0 0 20px #1DCD9F;
+}
+
+
+/* BACK TO TOP BUTTON */
+
+.wrapper{
+display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.back2top-button{
+display:flex;
+border:none;
+width:40px;
+height: 40px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+color:#000;
+font-weight:600;
+cursor:pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 0px 4px rgba(29, 205, 159, 0.253);
+opacity:0;
+visibility:hidden;
+transform:translateY(20px);
+transition:all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.back2top-button.show{
+opacity:1;
+visibility:visible;
+transform:translateY(0);
+}
+
+.back2top-button:hover{
+background:#17a97f;
+transform:translateY(-3px);
+}
+
+.svgIcon{
+    width: 18px;
+    height: 18px;
+    fill: white;
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+}
+
+.button-label{
+font-size:14px;
+}
+
+
+
+/* Floating section navigation */
+
+.section-nav{
+position:fixed;
+left:25px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
+gap:18px;
+z-index:999;
+}
+
+/* square indicators */
+
+.nav-square{
+width:14px;
+height:14px;
+background:#666;
+display:block;
+transition:all 0.3s ease;
+position:relative;
+}
+
+/* active square */
+
+.nav-square.active{
+background:#1DCD9F;
+box-shadow:0 0 8px #1DCD9F;
+transform:scale(1.2);
+}
+
+/* hover effect */
+
+.nav-square:hover{
+background:#1DCD9F;
+transform:scale(1.2);
+}
+
+/* tooltip text */
+
+.nav-square span{
+position:absolute;
+left:25px;
+top:50%;
+transform:translateY(-50%);
+background:#111;
+color:#fff;
+padding:4px 10px;
+border-radius:6px;
+font-size:12px;
+opacity:0;
+transition:0.3s;
+white-space:nowrap;
+}
+
+.nav-square:hover span{
+opacity:1;
 }
